@@ -1,0 +1,134 @@
+:root {
+  --heading: rgb(24 24 29);
+  --text: rgb(24 24 29);
+  --white: #fff;
+  --black: #212529;
+  --helper: #8490ff;
+  --bg: rgb(249 249 255);
+  --footer_bg: #0a1435;
+  --btn: rgb(98 84 243);
+  --border: rgba(98, 84, 243, 0.5);
+  --hr: #ffffff;
+  --gradient: linear-gradient(0deg, rgb(132 144 255) 0%, rgb(98 189 252) 100%);
+  --shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  --shadowsupport: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.navebar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 40px;
+  align-items: center;
+  background-color: var(--bg);
+
+  height: 70px;
+  position: sticky;
+  top: 0;
+}
+.menus {
+  display: flex;
+}
+.menus ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.menus ul li {
+  margin: 5px 10px;
+  padding: 5px 10px;
+  list-style: none;
+  position: relative;
+  /* border: 1px solid red; */
+  overflow: hidden;
+}
+.menus ul li::before {
+  position: absolute;
+  content: "";
+  left: 0;
+  top: 95%;
+  width: 80%;
+  height: 2px;
+  border-radius: 5px;
+  overflow: hidden;
+  transform: translateX(-100%);
+  background-color: var(--heading);
+  transition: transform 0.2s linear;
+}
+.menus ul li:hover::before {
+  transform: translateX(0);
+}
+.menus ul li a {
+  text-decoration: none;
+  color: var(--heading);
+  font-size: 18px;
+}
+.menus ul li a:hover {
+  color: var(--helper);
+}
+.menus ul li a:active {
+  color: var(--helper);
+}
+.menus ul li a .active {
+  color: var(--helper);
+}
+.logo {
+}
+.logo h1 {
+  letter-spacing: 1;
+  color: var(--footer_bg);
+}
+.logo font {
+  color: orangered;
+  cursor: pointer;
+}
+.burger {
+  cursor: pointer;
+  font-size: 25px;
+  color: var(--footer_bg);
+  z-index: 99;
+  display: none;
+  position: fixed;
+  right: 20px;
+  margin-top: -12px;
+}
+.burger:hover {
+  color: var(--helper);
+}
+/* ==================media querry================== */
+
+@media (max-width: 780px) {
+  .navebar {
+    padding: 10px 10px;
+  }
+  .mobile-menu {
+    transform: translateX(-100%);
+    transition: transform 0.3s linear;
+  }
+  .menus {
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    background-color: white;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    transition: transform 0.3s linear;
+    background: linear-gradient(to left, #cc2b5e, #753a88);
+  }
+  .menus ul {
+    flex-direction: column;
+  }
+  .menus ul li {
+    margin: 10px 0px;
+  }
+  .menus ul li a {
+    font-size: 20px;
+    color: white;
+  }
+  .burger {
+    display: block;
+  }
+}
